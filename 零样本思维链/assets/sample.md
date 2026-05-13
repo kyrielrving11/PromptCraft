@@ -1,0 +1,135 @@
+# 零样本思维链 Skill
+
+## 示例1：文本摘要
+
+### 用户任务及输出格式
+
+任务：将文章总结为 3 个关键要点。
+
+输出格式：使用 Markdown 列表，每个要点为一句话，简明扼要。
+
+### 生成的零样本提示 Prompt
+
+```
+你是一名专业内容摘要员，负责将文章内容提炼为关键要点。请严格按照以下要求生成输出：
+
+### 任务
+将下面的文章总结为 3 个关键要点。
+
+### 输出要求
+- 使用 Markdown 列表格式。
+- 每个要点为一句话，简明扼要。
+- 只输出 3 个要点。
+- 不要添加额外解释。
+- 输出语言为中文。
+
+### 示例输出格式
+- 要点 1
+- 要点 2
+- 要点 3
+
+### 待处理内容
+"""
+{用户输入的文章内容}
+"""
+Let’s work this out in a step by step way to be sure we have the right answer.
+```
+
+### 解释
+
+- 角色扮演：专业内容摘要员。
+- 指令明确：标明任务目标和要点数量。
+- 输出格式：Markdown 列表、3 条、中文。
+- 零样本特征：只提供格式骨架，不提供输入/输出示例对。
+- 便于复用：保留 `{用户输入的文章内容}` 占位符。
+- 零样本思维链的关键：Let’s work this out in a step by step way to be sure we have the right answer.
+
+## 示例2：实体提取
+
+### 用户任务及输出格式
+
+任务：从文章中提取重要实体，包括公司名、人物名、具体主题和总体主题。
+
+输出格式：要求有结构化标签，方便程序解析。
+
+### 生成的零样本提示 Prompt
+
+```
+你是一名专业信息抽取员，负责从文章中提取关键实体信息。请严格按照以下要求生成输出：
+
+### 任务
+从下面的文本中提取重要实体，包括：
+1. 公司名称
+2. 人物名称
+3. 具体主题
+4. 总体主题
+
+### 输出要求
+- 按顺序提取各类实体。
+- 使用明确标签和结构化格式，便于程序化解析。
+- 每类实体以逗号分隔列出。
+- 如果某类实体不存在，输出空字符串。
+- 不要添加其他无关信息。
+- 输出语言为中文。
+
+### 示例输出格式
+Company names: <comma_separated_list_of_company_names>
+People names: <comma_separated_list_of_people_names>
+Specific topics: <comma_separated_list_of_specific_topics>
+General themes: <comma_separated_list_of_general_themes>
+
+### 待处理内容
+"""
+{用户输入的文章内容}
+"""
+Let’s work this out in a step by step way to be sure we have the right answer.
+```
+
+### 解释
+
+- 角色扮演：专业信息抽取员。
+- 指令明确：标明实体类别和输出顺序。
+- 输出格式：标签、分隔符、缺失值处理均明确。
+- 零样本特征：只展示目标格式，不给任务输入/输出示例。
+- 便于解析：输出可被程序读取为表格或键值结构。
+- 零样本思维链的关键：Let’s work this out in a step by step way to be sure we have the right answer.
+
+## 示例3：代码生成
+
+### 用户任务及输出格式
+
+任务：写一个 Python 函数，将英里转换为公里。
+
+输出格式：Python 代码块，函数名为 `miles_to_km`，输入参数为 `miles`，返回公里数。
+
+### 生成的零样本提示 Prompt
+
+````
+你是一名专业 Python 编程助手，负责根据任务要求生成正确的代码。请严格按照以下要求生成输出：
+
+### 任务
+编写一个 Python 函数，将英里数转换为公里数。
+
+### 输出要求
+- 使用 Python 语言。
+- 函数名为 `miles_to_km`，输入参数为 `miles`。
+- 返回公里数，换算系数为 1 mile = 1.60934 km。
+- 输出完整可执行代码块。
+- 不要添加额外解释。
+
+### 示例输出格式
+```python
+def miles_to_km(miles):
+    return miles * 1.60934
+```
+Let’s work this out in a step by step way to be sure we have the right answer..
+````
+
+### 解释
+
+- 角色扮演：专业 Python 编程助手。
+- 指令明确：函数功能、参数、返回值和换算系数。
+- 输出格式：只输出 Python 代码块。
+- 零样本特征：示例输出格式只是代码结构骨架，不包含用户输入/输出配对。
+- 便于运行：函数体完整，可直接执行。
+- 零样本思维链的关键：Let’s work this out in a step by step way to be sure we have the right answer.
