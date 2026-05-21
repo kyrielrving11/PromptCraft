@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.pyo
+
+.tmp/
+tmp/
+temp/
+
+*.session.md
+*.log
+*.out
+
+input.json
+output.md
+*.local.json
+
